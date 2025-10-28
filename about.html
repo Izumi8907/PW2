@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom College - Student Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #729bda;
+            padding: 20px;
+            color: #939bb4;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 20px;
+        }
+        
+        .college-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .form-title {
+            font-size: 22px;
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        .form-section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .file-upload {
+            background-color: #f8f9fa;
+            border: 1px dashed #ced4da;
+            border-radius: 4px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .file-upload p {
+            margin-bottom: 10px;
+            color: #6c757d;
+        }
+        
+        .address-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+        
+        @media (max-width: 600px) {
+            .address-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="college-name">BLOOM COLLEGE</div>
+            <div class="form-title">Student Registration Form</div>
+        </div>
+        
+        <form id="registrationForm">
+            <div class="form-section">
+                <div class="file-upload">
+                    <p>Browser... (less than 5 MB)</p>
+                    <input type="file" id="studentImage" accept="image/*">
+                </div>
+                
+                <div class="form-group">
+
+                    <label for="studentName" class="required">STUDENT NAME:</label>
+                    <input type="text" id="studentName" placeholder="Enter student name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fatherName" class="required">FATHER'S NAME:</label>
+                    <input type="text" id="fatherName" placeholder="Father's full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="motherName" class="required">MOTHER'S NAME:</label>
+                    <input type="text" id="motherName" placeholder="Mother's full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Gender:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="male" name="gender" value="male" required>
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dob" class="required">Birth Date:</label>
+                    <input type="date" id="dob" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="required">E-mail:</label>
+                    <input type="email" id="email" placeholder="example@domain.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="level" class="required">Level:</label>
+                    <select id="level" required>
+                        <option value="">Select Level</option>
+                        <option value="diploma">Diploma</option>
+                        <option value="matrikulasi">Matrikulasi</option>
+                        <option value="asasi">Asasi</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="department" class="required">Department:</label>
+                    <select id="department" required>
+                        <option value="">Select Department</option>
+                        <option value="jabatan-teknologi-komunikasi-dan-maklumat">Jabatan Teknologi Komunikasi dan Maklumat</option>
+                        <option value="jabatan-kejuruteraan-awam">Jabatan Kejuruteraan Awam</option>
+                        <option value="jabatan-kejuruteraan-mekanikal">Jabatan Kejuruteraan Mekanikal</option>
+                        
+                    </select>
+                </div> 
+                
+            </div>
+            
+            <div class="section-title">Address</div>
+            
+            <div class="address-grid">
+                <div class="form-group">
+                    <label for="state" class="required">State:</label>
+                    <input type="text" id="state" placeholder="Enter state" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city" class="required">City:</label>
+                    <input type="text" id="city" placeholder="Enter city" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="postcode" class="required">Postcode:</label>
+                    <input type="text" id="postcode" placeholder="Enter postcode" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit Registration</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic validation
+            const requiredFields = document.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    isValid = false;
+                    field.style.borderColor = '#e74c3c';
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (isValid) {
+                alert('Registration submitted successfully!');
+                // In a real application, you would send the form data to a server here
+                // this.submit();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+    </script>
+</body>
+</html>
